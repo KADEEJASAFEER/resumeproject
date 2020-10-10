@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% extends "resume/indexpage.html" %}
+{% block body_block %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-4">
+
+            <h1>View Resume</h1><br>
+            {% for resume in res %}
+            <div class="card" style="width: 18rem;">
+                  <img src="{{resume.profilepicture.url}}" class="card-img-top" alt="..." >
+                <div class="card-body">
+                    <h5 class="card-title"> <b>Full Name:</b>{{resume.fullname}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted"><b>Email:</b>{{resume.email}} </h6>
+                    <h6 class="card-subtitle mb-2 text-muted"><b>Date of Birth:</b> {{resume.dob}}</h6>
+                    <h6 class="card-subtitle mb-2 text-muted"> <b>Qualification:</b> {{resume.qualification}}</h6>
+                    <p class="card-text"></p>
+                    <a  class="btn btn-secondary" href="{% url 'editresume' resume.id%}">EDIT </a>
+                    <a  class="btn btn-danger" href="{% url 'deleteresume' resume.id%}">DELETE </a>
+                    </div>
+</div>
+
+
+{% endfor %}
+
+
+
+
+
+
+
+
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+
+
+{%endblock%}
